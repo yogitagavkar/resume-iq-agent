@@ -1,0 +1,14 @@
+version: '3.9'
+
+services:
+  laravel:
+    build: ./laravel-api
+
+  fastapi:
+    build: ./fastapi-agent
+
+  redis:
+    image: redis
+
+  postgres:
+    image: postgres
