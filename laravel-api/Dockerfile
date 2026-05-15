@@ -17,6 +17,8 @@ COPY . .
 
 RUN composer install --ignore-platform-reqs
 
+RUN chmod -R 775 storage bootstrap/cache
+
 EXPOSE 8000
 
-CMD php artisan serve --host=0.0.0.0 --port=$PORT
+CMD php artisan optimize:clear && php artisan serve --host=0.0.0.0 --port=$PORT
