@@ -1,11 +1,27 @@
-def calculate_score(candidate_skills, jd_skills):
+def calculate_score(skills, jd_skills):
+
+    print("Resume skills:", skills)
+
+    print("JD skills:", jd_skills)
+
+    if not jd_skills:
+
+        print(
+            "No JD skills found"
+        )
+
+        return 0
+
     matched = list(
-        set(candidate_skills) &
+        set(skills)
+        &
         set(jd_skills)
     )
 
-    score = int(
-        (len(matched) / len(jd_skills)) * 100
-    )
+    score = (
+        len(matched)
+        /
+        len(jd_skills)
+    ) * 100
 
-    return score
+    return round(score)
