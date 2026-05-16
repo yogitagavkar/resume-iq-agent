@@ -20,3 +20,24 @@ def scoring_node(state):
         state["jd_skills"]
     )
     return state
+
+def recommendation_node(state):
+
+    return {
+        "recommendation":"Good Fit"
+    }
+
+
+def rejection_node(state):
+
+    return {
+        "recommendation":"Not Suitable"
+    }
+
+
+def route_candidate(state):
+
+    if state["score"] > 60:
+        return "recommendation"
+
+    return "rejection"

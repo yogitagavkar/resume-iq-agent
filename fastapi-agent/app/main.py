@@ -9,20 +9,9 @@ async def analyze_resume(
     job_description: str = Form(...)
 ):
 
-    try:
+    result = await run_graph(
+        resume,
+        job_description
+    )
 
-        result = await run_graph(
-            resume,
-            job_description
-        )
-
-        return result
-
-    except Exception as e:
-
-        print("ERROR =>", str(e))
-
-        raise HTTPException(
-            status_code=500,
-            detail=str(e)
-        )
+    return result
